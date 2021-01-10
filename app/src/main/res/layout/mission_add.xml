@@ -1,77 +1,100 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="left">
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="描述"
-            android:id="@+id/add_mission_description"/>
+            android:layout_marginStart="@dimen/item_left_margin"
+            android:layout_marginTop="@dimen/item_top_margin"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_width="@dimen/item_label_width"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/item_text_size"
+                android:gravity="right"
+                android:text="描述:"
+                android:id="@+id/add_mission_description"/>
         <EditText
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/add_mission_description_edit"/>
+                android:layout_width="@dimen/item_edit_width"
+                android:layout_height="wrap_content"
+                android:id="@+id/add_mission_description_edit"/>
     </LinearLayout>
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_left_margin"
+            android:layout_marginTop="@dimen/item_top_margin"
             android:orientation="horizontal">
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/item_label_width"
                 android:layout_height="wrap_content"
-                android:text="类型"
+                android:textSize="@dimen/item_text_size"
+                android:gravity="right"
+                android:text="类型:"
                 android:id="@+id/add_mission_type"/>
-        <EditText
-                android:layout_width="200dp"
+        <Spinner
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/add_mission_type_edit"/>
+                android:id="@+id/add_mission_type_edit"
+                android:entries="@array/type"
+                android:dropDownSelector="@color/colorPrimary"
+                android:dropDownWidth="@dimen/item_edit_width"/>
     </LinearLayout>
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_left_margin"
+            android:layout_marginTop="@dimen/item_top_margin"
             android:orientation="horizontal">
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/item_label_width"
                 android:layout_height="wrap_content"
-                android:text="结束时间"
+                android:textSize="@dimen/item_text_size"
+                android:gravity="right"
+                android:text="开始时间:"
+                android:id="@+id/add_mission_startTime"/>
+        <EditText
+                android:layout_width="@dimen/item_edit_width"
+                android:layout_height="wrap_content"
+                android:id="@+id/add_mission_startTime_edit"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_left_margin"
+            android:layout_marginTop="@dimen/item_top_margin"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_width="@dimen/item_label_width"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/item_text_size"
+                android:gravity="right"
+                android:text="结束时间:"
                 android:id="@+id/add_mission_endTime"/>
         <EditText
-                android:layout_width="200dp"
+                android:layout_width="@dimen/item_edit_width"
                 android:layout_height="wrap_content"
                 android:id="@+id/add_mission_endTime_edit"/>
     </LinearLayout>
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_left_margin"
+            android:layout_marginTop="@dimen/item_top_margin"
             android:orientation="horizontal">
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/item_label_width"
                 android:layout_height="wrap_content"
-                android:text="父亲（填0）"
-                android:id="@+id/add_mission_father"/>
-        <EditText
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/add_mission_father_edit"/>
-    </LinearLayout>
-    <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="分数"
+                android:textSize="@dimen/item_text_size"
+                android:gravity="right"
+                android:text="分数:"
                 android:id="@+id/add_mission_score"/>
         <EditText
-                android:layout_width="200dp"
+                android:layout_width="@dimen/item_edit_width"
                 android:layout_height="wrap_content"
                 android:id="@+id/add_mission_score_edit"/>
     </LinearLayout>

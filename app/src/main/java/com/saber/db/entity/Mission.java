@@ -1,15 +1,16 @@
 package com.saber.db.entity;
 
 public class Mission {
-    String id = null;
-    String description = null;
-    String type = null;
-    String startTime = null;
-    String endTime = null;
-    String father = null;
-    String score = null;
+    String id;
+    String description;
+    String type;
+    String startTime;
+    String endTime;
+    String father;
+    String score;
+    String strikethrough;
 
-    public Mission(String id,String description,String type,String startTime,String endTime,String father,String score){
+    public Mission(String id,String description,String type,String startTime,String endTime,String father,String score,String strikethrough){
         this.id = id;
         this.description = description;
         this.type = type;
@@ -17,6 +18,7 @@ public class Mission {
         this.endTime = endTime;
         this.father = father;
         this.score = score;
+        this.strikethrough = strikethrough;
     }
 
     public String getId() {
@@ -73,5 +75,13 @@ public class Mission {
 
     public void setScore(String score) {
         this.score = score;
+    }
+
+    public String getStrikethrough(){
+        return strikethrough;
+    }
+
+    public void setStrikethrough(String strikethrough){
+        this.strikethrough = strikethrough;
     }
 }

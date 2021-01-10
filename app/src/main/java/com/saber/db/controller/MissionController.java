@@ -23,27 +23,28 @@ public class MissionController {
                 + "start_time varchar(16),"
                 + "end_time carchar(16),"
                 + "father varchar(16),"
-                + "score varchar(4))");
+                + "score varchar(4),"
+                + "strikethrough varchar(4))");
     }
 
     @SuppressLint("SimpleDataFormat")
     public static String addMission(String description,
                                     String type,
+                                    String startTime,
                                     String endTime,
-                                    String father,
                                     String score,
                                     MySQLiteOpenHelper mySQLiteOpenHelper){
         SQLiteDatabase sqLiteDatabase = mySQLiteOpenHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         String id = System.currentTimeMillis() + "";
-        String simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date());
         values.put("id",id);
         values.put("description",description);
         values.put("type",type);
-        values.put("start_time",simpleDateFormat);
+        values.put("start_time",startTime);
         values.put("end_time",endTime);
-        values.put("father",father);
+        values.put("father","");
         values.put("score",score);
+        values.put("strikethrough","0");
         sqLiteDatabase.insert("mission", null, values);
         return id;
     }
@@ -69,9 +70,9 @@ public class MissionController {
         SQLiteDatabase sqLiteDatabase = mySQLiteOpenHelper.getWritableDatabase();
         Cursor cursor = null;
         if(queryStr == null){
-            cursor = sqLiteDatabase.query("mission",null,null,null,null,null,null);
+            cursor = sqLiteDatabase.query("mission",null,null,null,null,null,"type");
         }else{
-            cursor = sqLiteDatabase.query("mission",null,queryStr,queryValues,null,null,null);
+            cursor = sqLiteDatabase.query("mission",null,queryStr,queryValues,null,null,"type");
         }
         List<Mission> missionList = new ArrayList<>();
         while (cursor.moveToNext()){
@@ -82,7 +83,8 @@ public class MissionController {
                     cursor.getString(cursor.getColumnIndex("start_time")),
                     cursor.getString(cursor.getColumnIndex("end_time")),
                     cursor.getString(cursor.getColumnIndex("father")),
-                    cursor.getString(cursor.getColumnIndex("score"))));
+                    cursor.getString(cursor.getColumnIndex("score")),
+                    cursor.getString(cursor.getColumnIndex("strikethrough"))));
 
         }
         return missionList;
